@@ -1,0 +1,9 @@
+Data/Hora: 26/03/2024 22:02:25
+Distância: 602,00 KM
+Preço do Diesel: R$ 5,95 por litro
+Peso da Carga: 37,00 toneladas
+Pedágio: R$ 95,60
+Comissão: 12,00%
+Frete por TON: R$ 135,90
+KM por litro de Diesel: 2,00
+
