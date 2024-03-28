@@ -7,3 +7,12 @@ Comissão: 12,00%
 Frete por TON: R$ 135,90
 KM por litro de Diesel: 2,00
 
+Data: 27/03/2024 22:22:27
+Distância: 900 KM
+Preço do Diesel: R$ 5,9 por litro
+Peso da Carga: 60 toneladas
+Pedágio: R$ 56,9
+Comissão: 12%
+Frete por TON: R$ 156,9
+KM por litro de Diesel: 5
+
