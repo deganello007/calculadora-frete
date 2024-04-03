@@ -16,98 +16,60 @@ public class CalculadoraFreteGUI {
         frame = new JFrame("Calculadora de Frete");
         frame.setSize(400, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(null);
+        frame.setLayout(new BorderLayout());
+
+        JPanel inputPanel = new JPanel();
+        inputPanel.setLayout(new GridLayout(0, 2, 10, 10));
+        inputPanel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JLabel distanciaLabel = new JLabel("Distância (KM):");
-        distanciaLabel.setBounds(20, 20, 120, 25);
-        frame.add(distanciaLabel);
-
         distanciaField = new JTextField();
-        distanciaField.setBounds(150, 20, 200, 25);
-        frame.add(distanciaField);
-
         JLabel precoDieselLabel = new JLabel("Preço do diesel por litro:");
-        precoDieselLabel.setBounds(20, 50, 150, 25);
-        frame.add(precoDieselLabel);
-
         precoDieselField = new JTextField();
-        precoDieselField.setBounds(180, 50, 170, 25);
-        frame.add(precoDieselField);
-
         JLabel pesoCargaLabel = new JLabel("Peso da carga (toneladas):");
-        pesoCargaLabel.setBounds(20, 80, 180, 25);
-        frame.add(pesoCargaLabel);
-
         pesoCargaField = new JTextField();
-        pesoCargaField.setBounds(210, 80, 140, 25);
-        frame.add(pesoCargaField);
-
         JLabel pedagioLabel = new JLabel("Valor do pedágio:");
-        pedagioLabel.setBounds(20, 110, 120, 25);
-        frame.add(pedagioLabel);
-
         pedagioField = new JTextField();
-        pedagioField.setBounds(150, 110, 200, 25);
-        frame.add(pedagioField);
-
         JLabel comissaoLabel = new JLabel("Comissão:");
-        comissaoLabel.setBounds(20, 140, 120, 25);
-        frame.add(comissaoLabel);
-
         comissaoField = new JTextField();
-        comissaoField.setBounds(150, 140, 200, 25);
-        frame.add(comissaoField);
-
         JLabel freteKmLabel = new JLabel("Frete por TON:");
-        freteKmLabel.setBounds(20, 170, 120, 25);
-        frame.add(freteKmLabel);
-
         freteKmField = new JTextField();
-        freteKmField.setBounds(150, 170, 200, 25);
-        frame.add(freteKmField);
-
         JLabel kmPorLitroLabel = new JLabel("KM por litro de diesel:");
-        kmPorLitroLabel.setBounds(20, 200, 150, 25);
-        frame.add(kmPorLitroLabel);
-
         kmPorLitroField = new JTextField();
-        kmPorLitroField.setBounds(180, 200, 170, 25);
-        frame.add(kmPorLitroField);
 
+        inputPanel.add(distanciaLabel);
+        inputPanel.add(distanciaField);
+        inputPanel.add(precoDieselLabel);
+        inputPanel.add(precoDieselField);
+        inputPanel.add(pesoCargaLabel);
+        inputPanel.add(pesoCargaField);
+        inputPanel.add(pedagioLabel);
+        inputPanel.add(pedagioField);
+        inputPanel.add(comissaoLabel);
+        inputPanel.add(comissaoField);
+        inputPanel.add(freteKmLabel);
+        inputPanel.add(freteKmField);
+        inputPanel.add(kmPorLitroLabel);
+        inputPanel.add(kmPorLitroField);
+
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10));
         JButton calcularButton = new JButton("Calcular Frete");
-        calcularButton.setBounds(150, 240, 150, 30);
-        frame.add(calcularButton);
-
+        calcularButton.setIcon(new ImageIcon("calculate_icon.png"));
         JButton limparButton = new JButton("Limpar Dados");
-        limparButton.setBounds(150, 280, 150, 30);
-        frame.add(limparButton);
-
+        limparButton.setIcon(new ImageIcon("clear_icon.png"));
         JButton visualizarPesquisasButton = new JButton("Visualizar Pesquisas Antigas");
-        visualizarPesquisasButton.setBounds(50, 320, 300, 30);
-        frame.add(visualizarPesquisasButton);
+        visualizarPesquisasButton.setIcon(new ImageIcon("history_icon.png"));
+
+        buttonPanel.add(calcularButton);
+        buttonPanel.add(limparButton);
+        buttonPanel.add(visualizarPesquisasButton);
 
         resultadoArea = new JTextArea();
-        resultadoArea.setBounds(20, 370, 350, 160);
-        resultadoArea.setEditable(false);
-        frame.add(resultadoArea);
+        JScrollPane scrollPane = new JScrollPane(resultadoArea);
 
-        calcularButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                calcularFrete();
-            }
-        });
-
-        limparButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                limparCampos();
-            }
-        });
-
-        visualizarPesquisasButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                visualizarPesquisas();
-            }
-        });
+        frame.add(inputPanel, BorderLayout.NORTH);
+        frame.add(buttonPanel, BorderLayout.CENTER);
+        frame.add(scrollPane, BorderLayout.SOUTH);
 
         frame.setVisible(true);
     }
